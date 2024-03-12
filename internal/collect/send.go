@@ -1,3 +1,5 @@
 package collect
 
-func Send(logs []string)
+func Send(logs []string) {
+
+}

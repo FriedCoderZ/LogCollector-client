@@ -43,7 +43,8 @@ func (c collector) Run() error {
 		if fileNameRegex.MatchString(file.Name()) {
 			filePath := filepath.Join(c.FileDirPath, file.Name())
 			_, err := collect.ReadLog(filePath)
-			// logs, err := collect.Collect(filePath)
+			logTexts, err := collect.ReadLog(filePath)
+			logs, err := collect.ParseLogs(logTexts, c.ParseReg)
 			if err != nil {
 				return err
 			}
