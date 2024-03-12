@@ -1,3 +1,3 @@
-package internal
+package collect
 
 func Send(logs []string)
