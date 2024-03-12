@@ -1,5 +1,5 @@
 package internal
 
-type config struct {
-	reg string
+func Collect(LogPathReg string) ([]string, error) {
+	return []string{}, nil
 }
