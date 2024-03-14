@@ -2,35 +2,71 @@ package collect
 
 import (
 	"bufio"
-	"fmt"
 	"os"
+	"path/filepath"
+	"time"
+
+	"github.com/FriedCoderZ/LogCollector-client/internal/database"
 )
 
 // ReadLog 从指定的日志文件中按行读取日志数据，并返回一个字符串列表。
-func ReadLog(filePath string) ([]string, error) {
-	// 打开日志文件
-	file, err := os.Open(filePath)
+func ReadLog(path string) ([]string, error) {
+	//更新为全局变量
+	path, err := filepath.Abs(path)
 	if err != nil {
-		return nil, fmt.Errorf("无法打开文件: %w", err)
+		return nil, err
+	}
+	record, err := database.GetOrCreateRecord(path)
+	if err != nil {
+		return nil, err
+	}
+	// 获取日志文件的信息
+	fileInfo, err := os.Stat(record.Path)
+	if err != nil {
+		return nil, err
+	}
+	// 判断文件最后修改时间是否超过上次读取时间
+	if !fileInfo.ModTime().After(record.LastReadTime) {
+		return nil, nil // 文件未修改，无需读取新增内容
+	}
+
+	startLine := record.LastReadLine + 1
+	lines, err := readLogByLine(record.Path, startLine)
+	if err != nil {
+		return nil, err
+	}
+
+	// 更新LogRecord对象的LastReadLine和LastReadTime
+	record.Update(record.LastReadLine+len(lines), time.Now())
+	record, _ = database.GetRecord(path)
+	return lines, nil
+}
+
+func readLogByLine(filename string, startLine int) ([]string, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return nil, err
 	}
 	defer file.Close()
-
-	// 创建字符串列表，用于存储日志数据
-	logs := []string{}
-
-	// 创建一个带缓冲的读取器
 	scanner := bufio.NewScanner(file)
 
-	// 逐行读取日志数据
+	// 定位到指定行
+	for i := 1; i < startLine; i++ {
+		if !scanner.Scan() {
+			// 如果文件行数不足，则返回空切片
+			return []string{}, nil
+		}
+	}
+
+	lines := make([]string, 0)
 	for scanner.Scan() {
-		logs = append(logs, scanner.Text())
+		line := scanner.Text()
+		lines = append(lines, line)
 	}
 
-	// 检查读取过程中是否发生错误
 	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("读取文件失败: %w", err)
+		return nil, err
 	}
 
-	// 返回日志数据字符串列表
-	return logs, nil
+	return lines, nil
 }

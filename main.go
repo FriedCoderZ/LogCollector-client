@@ -1,33 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"regexp"
+	"github.com/FriedCoderZ/LogCollector-client/internal/database"
+	"github.com/FriedCoderZ/LogCollector-client/pkg/collector"
 )
 
-func parseString(input string, pattern string) map[string]string {
-	re := regexp.MustCompile(pattern)
-	result := make(map[string]string)
-
-	matches := re.FindStringSubmatch(input)
-	if matches == nil {
-		return result
-	}
-
-	for i, name := range re.SubexpNames() {
-		if i != 0 && name != "" {
-			result[name] = matches[i]
-		}
-	}
-
-	return result
-}
-
 func main() {
-	input := "2024/03/12"
-	pattern := `(?P<year>2024/03/12)`
-
-	resultMap := parseString(input, pattern)
-
-	fmt.Println(resultMap)
+	searchPath := "/ouryun/LogCollector-client/log"
+	filePathPattern := `^\/ouryun\/LogCollector-client\/log\/(\d{8})\/service.log$`
+	parseTemplate := `^{{month:Mar}} {{day}} {{time::}} (?P<Host>\w+) (?P<Text>.*)$`
+	serverAddress := "http://example.com"
+	reportInterval := 5
+	database.ClearRecords()
+	collector := collector.NewCollector(searchPath, filePathPattern, parseTemplate, serverAddress, reportInterval)
+	collector.Run()
+	// parseTemplate := `^{{month:Mar}} (?P<Text>.*)$`
+	// res := collector.ReplaceTemplates(parseTemplate)
+	// fmt.Println(res)
 }

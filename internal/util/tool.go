@@ -1,7 +1,8 @@
 package util
 
 import (
-	"fmt"
+	"os"
+	"path/filepath"
 	"regexp"
 )
 
@@ -16,13 +17,39 @@ func ParseString(text string, pattern string) (map[string]string, error) {
 	}
 
 	for i, name := range re.SubexpNames() {
-		if name == "" {
-			return map[string]string{}, fmt.Errorf("failed to parse named subexpression at index %d", i)
-		}
 		if i != 0 && name != "" {
 			result[name] = matches[i]
 		}
 	}
 
 	return result, nil
+}
+
+func FindAllMatchingFiles(searchPath string, filePathPattern string) ([]string, error) {
+	var matchingFiles []string
+
+	// 编译正则表达式
+	regExp, err := regexp.Compile(filePathPattern)
+	if err != nil {
+		return nil, err
+	}
+
+	// 遍历文件系统
+	err = filepath.Walk(searchPath, func(path string, info os.FileInfo, err error) error {
+		// 忽略根目录
+		if path == searchPath {
+			return nil
+		}
+		// 如果路径匹配正则表达式，则添加到结果列表
+		if regExp.MatchString(path) {
+			matchingFiles = append(matchingFiles, path)
+		}
+		return nil
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return matchingFiles, nil
 }
