@@ -8,17 +8,19 @@ import (
 	"xorm.io/xorm"
 )
 
-var Engine *xorm.Engine
+var (
+	engine *xorm.Engine
+)
 
 func init() {
 	// 连接数据库
 	fmt.Print("connect to the database...")
-	engine, err := xorm.NewEngine("sqlite3", "../../data.db")
+	var err error
+	engine, err = xorm.NewEngine("sqlite3", "../../data.db")
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Print("OK\n")
-	Engine = engine
 	// 初始化数据库
 	fmt.Print("Initialize the database...")
 	err = sync()
@@ -29,9 +31,13 @@ func init() {
 }
 
 func sync() error {
-	err := Engine.Sync2(new(LogRecord))
+	err := engine.Sync2(new(LogRecord))
 	if err != nil {
 		return err
 	}
 	return nil
+}
+
+func GetEngine() *xorm.Engine {
+	return engine
 }

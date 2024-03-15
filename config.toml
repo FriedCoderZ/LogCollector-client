@@ -1,0 +1,12 @@
+[server]
+address = "http://127.0.0.1:8080"
+
+[crypto]
+AESLength = 128
+RSAPublicKeyPath ="/ouryun/LogCollector-client/config"  
+
+[collector]
+searchPath = "/ouryun/LogCollector-client/log"
+filePathPattern = "^\\/ouryun\\/LogCollector-client\\/log\\/(\\d{8})\\/service.log$"
+parseTemplate = "^{{month:Mar}} {{day}} {{time::}} (?P<Host>\\w+) (?P<Text>.*)$"
+reportInterval = 5
