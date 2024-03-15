@@ -44,10 +44,11 @@ func (c Collector) Run() error {
 		if len(logTexts) > 0 {
 			c.parseTemplate = ReplaceTemplates(c.parseTemplate)
 			logs, err := collect.ParseLogs(logTexts, c.parseTemplate)
+			// Test
 			for _, log := range logs {
-				log["Text"] = ""
 				fmt.Println(log)
 			}
+			// End
 			if err != nil {
 				return err
 			}
