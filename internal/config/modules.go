@@ -1,7 +1,7 @@
 package config
 
 type CryptoConfig struct {
-	AESLength        string
+	AESLength        int
 	RSAPublicKeyPath string
 }
 

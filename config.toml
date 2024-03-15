@@ -3,7 +3,7 @@ address = "http://127.0.0.1:8080"
 
 [crypto]
 AESLength = 128
-RSAPublicKeyPath ="/ouryun/LogCollector-client/config"  
+RSAPublicKeyPath ="/ouryun/LogCollector-client/publicKey.pem"  
 
 [collector]
 searchPath = "/ouryun/LogCollector-client/log"

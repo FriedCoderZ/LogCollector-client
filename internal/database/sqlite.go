@@ -31,7 +31,7 @@ func init() {
 }
 
 func sync() error {
-	err := engine.Sync2(new(LogRecord))
+	err := engine.Sync2(new(logRecordInfo))
 	if err != nil {
 		return err
 	}
