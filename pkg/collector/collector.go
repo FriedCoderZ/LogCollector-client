@@ -1,10 +1,11 @@
 package collector
 
 import (
-	"fmt"
-	"strings"
+	"log"
+	"time"
 
 	"github.com/FriedCoderZ/LogCollector-client/internal/collect"
+	"github.com/FriedCoderZ/LogCollector-client/internal/config"
 	"github.com/FriedCoderZ/LogCollector-client/internal/util"
 )
 
@@ -28,31 +29,34 @@ func NewCollector(searchPath, filePathPattern, parseTemplate, serverAddress stri
 }
 
 func (c Collector) Run() error {
-	// 查找所有匹配的文件
-	files, err := util.FindAllMatchingFiles(c.SearchPath, c.FilePathPattern)
-	if err != nil {
-		return err
-	}
-	fmt.Printf("找到%d个符合的文件：%s\n", len(files), strings.Join(files, ", "))
-	for index, file := range files {
-		fmt.Printf("读取第%d个文件：%s\n", index, file)
-		logTexts, err := collect.ReadLog(file)
-		fmt.Println(logTexts)
+	config := config.GetConfig()
+	for {
+		files, err := util.FindAllMatchingFiles(c.SearchPath, c.FilePathPattern)
 		if err != nil {
 			return err
 		}
-		if len(logTexts) > 0 {
-			c.parseTemplate = ReplaceTemplates(c.parseTemplate)
-			logs, err := collect.ParseLogs(logTexts, c.parseTemplate)
-			// Test
-			for _, log := range logs {
-				fmt.Println(log)
-			}
-			// End
+		var logs []map[string]string
+		for _, file := range files {
+			logTexts, err := collect.ReadLogByFile(file)
 			if err != nil {
 				return err
 			}
+			if len(logTexts) > 0 {
+				c.parseTemplate = ReplaceTemplates(c.parseTemplate)
+				fileLogs, err := collect.ParseLogs(logTexts, c.parseTemplate)
+				if err != nil {
+					return err
+				}
+				logs = append(logs, fileLogs...)
+			}
 		}
+		log.Printf("新增%d条日志...", len(logs))
+		if len(logs) > 0 {
+			err = collect.SendLogs(logs)
+		}
+		if err != nil {
+			return err
+		}
+		time.Sleep(time.Duration(config.Collector.ReportInterval) * time.Second)
 	}
-	return nil
 }

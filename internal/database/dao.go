@@ -2,7 +2,6 @@ package database
 
 import (
 	"errors"
-	"fmt"
 	"path/filepath"
 	"time"
 )
@@ -16,7 +15,6 @@ func GetRecord(path string) (*logRecordInfo, error) {
 	}
 	has, err := engine.Where("path = ?", path).Get(&record)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	if has {
@@ -55,7 +53,6 @@ func GetOrCreateRecord(path string) (*logRecordInfo, error) {
 
 	record, err := GetRecord(path)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	if record == nil || record.ID == 0 {
@@ -112,7 +109,7 @@ func GetCollectorInfo() (*collectorInfo, error) {
 	return &collectorInfo, nil
 }
 
-func isCollectorInfoEmpty() (bool, error) {
+func IsCollectorInfoEmpty() (bool, error) {
 	count, err := engine.Table("collector_info").Count()
 	if err != nil {
 		return false, err

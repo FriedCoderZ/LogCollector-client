@@ -16,7 +16,7 @@ func init() {
 	// 连接数据库
 	fmt.Print("connect to the database...")
 	var err error
-	engine, err = xorm.NewEngine("sqlite3", "../../data.db")
+	engine, err = xorm.NewEngine("sqlite3", "./data.db")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -32,6 +32,10 @@ func init() {
 
 func sync() error {
 	err := engine.Sync2(new(logRecordInfo))
+	if err != nil {
+		return err
+	}
+	err = engine.Sync2(new(collectorInfo))
 	if err != nil {
 		return err
 	}

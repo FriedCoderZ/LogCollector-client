@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -13,7 +14,7 @@ func ParseString(text string, pattern string) (map[string]string, error) {
 
 	matches := re.FindStringSubmatch(text)
 	if matches == nil {
-		return result, nil
+		return result, fmt.Errorf("unable to correctly perform regex grouping")
 	}
 
 	for i, name := range re.SubexpNames() {

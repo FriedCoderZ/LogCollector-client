@@ -1,7 +1,9 @@
 package util
 
 import (
+	"bytes"
 	"crypto/aes"
+	"crypto/cipher"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
@@ -13,7 +15,7 @@ import (
 )
 
 // RSA加密函数
-func EncryptRSA(publicKey, data []byte) ([]byte, error) {
+func RSAEncrypt(publicKey, data []byte) ([]byte, error) {
 	block, _ := pem.Decode(publicKey)
 	if block == nil {
 		return nil, fmt.Errorf("decode public key error")
@@ -32,7 +34,7 @@ func EncryptAESKey(aesKey []byte, publicKeyPath string) (string, error) {
 		return "", err
 	}
 
-	encryptedKey, err := EncryptRSA(publicKey, aesKey)
+	encryptedKey, err := RSAEncrypt(publicKey, aesKey)
 	if err != nil {
 		return "", err
 	}
@@ -49,33 +51,31 @@ func GenerateAESKey(keySize int) ([]byte, error) {
 	return key, nil
 }
 
-func EncryptAES(plaintext string, key []byte) (string, error) {
-	// 创建cipher
-	c, err := aes.NewCipher(key)
-	if err != nil {
-		return "", err
-	}
-	ciphertext := make([]byte, len(plaintext))
-	// 加密
-	c.Encrypt(ciphertext, []byte(plaintext))
-	// Base64编码返回
-	ciphertextBase64 := base64.StdEncoding.EncodeToString(ciphertext)
-	return ciphertextBase64, nil
+// pkcs7Padding 填充
+func pkcs7Padding(data []byte, blockSize int) []byte {
+	//判断缺少几位长度。最少1，最多 blockSize
+	padding := blockSize - len(data)%blockSize
+	//补足位数。把切片[]byte{byte(padding)}复制padding个
+	padText := bytes.Repeat([]byte{byte(padding)}, padding)
+	return append(data, padText...)
 }
 
-func DecryptAES(ciphertextBase64 string, key []byte) (string, error) {
-	ciphertext, err := base64.StdEncoding.DecodeString(ciphertextBase64)
+// AesEncrypt 加密
+func AesEncrypt(data []byte, key []byte) ([]byte, error) {
+	//创建加密实例
+	block, err := aes.NewCipher(key)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
-	c, err := aes.NewCipher(key)
-	if err != nil {
-		return "", err
-	}
-
-	plaintext := make([]byte, len(ciphertext))
-	c.Decrypt(plaintext, ciphertext)
-
-	plaintextStr := string(plaintext[:])
-	return plaintextStr, nil
+	//判断加密快的大小
+	blockSize := block.BlockSize()
+	//填充
+	encryptBytes := pkcs7Padding(data, blockSize)
+	//初始化加密数据接收切片
+	crypted := make([]byte, len(encryptBytes))
+	//使用cbc加密模式
+	blockMode := cipher.NewCBCEncrypter(block, key[:blockSize])
+	//执行加密
+	blockMode.CryptBlocks(crypted, encryptBytes)
+	return crypted, nil
 }

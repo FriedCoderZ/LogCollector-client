@@ -1,107 +1,23 @@
-Mar 13 16:01:01 localhost CRON[1792011]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:02:01 localhost CRON[1792264]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:03:01 localhost CRON[1792515]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:04:01 localhost CRON[1792769]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:05:01 localhost CRON[1793037]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:05:01 localhost CRON[1793039]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:05:01 localhost CRON[1793038]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:06:01 localhost CRON[1793300]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:07:01 localhost CRON[1793554]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:08:01 localhost CRON[1793814]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:09:01 localhost CRON[1794062]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:10:01 localhost CRON[1794411]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:10:01 localhost CRON[1794412]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:10:01 localhost CRON[1794413]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 16:10:01 localhost CRON[1794416]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:11:01 localhost CRON[1794682]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:12:01 localhost CRON[1795028]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:13:01 localhost CRON[1795547]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:14:01 localhost CRON[1795801]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:15:01 localhost CRON[1796060]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:15:01 localhost CRON[1796061]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:15:01 localhost CRON[1796062]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:16:01 localhost CRON[1796322]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:17:01 localhost CRON[1796575]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
-Mar 13 16:17:01 localhost CRON[1796576]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:18:01 localhost CRON[1796838]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:19:01 localhost CRON[1797435]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:20:01 localhost CRON[1797883]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:20:01 localhost CRON[1797884]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:20:01 localhost CRON[1797886]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 16:20:01 localhost CRON[1797888]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:20:01 localhost systemd[1]: Starting Refresh fwupd metadata and update motd...
-Mar 13 16:20:01 localhost systemd[1]: fwupd-refresh.service: Main process exited, code=exited, status=1/FAILURE
-Mar 13 16:20:01 localhost systemd[1]: fwupd-refresh.service: Failed with result 'exit-code'.
-Mar 13 16:20:01 localhost systemd[1]: Failed to start Refresh fwupd metadata and update motd.
-Mar 13 16:21:01 localhost CRON[1798521]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:22:01 localhost CRON[1799934]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:23:01 localhost CRON[1801153]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:24:01 localhost CRON[1801942]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:25:01 localhost CRON[1802417]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:25:01 localhost CRON[1802418]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:25:01 localhost CRON[1802420]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:26:01 localhost CRON[1803197]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:27:01 localhost CRON[1804253]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:28:01 localhost CRON[1804744]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:29:01 localhost CRON[1805787]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:30:01 localhost CRON[1806359]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:30:01 localhost CRON[1806360]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:30:01 localhost CRON[1806361]: (root) CMD (/usr/local/qcloud/YunJing/YDCrontab.sh > /dev/null 2>&1)
-Mar 13 16:30:01 localhost CRON[1806363]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:30:01 localhost CRON[1806362]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 16:31:01 localhost CRON[1807387]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:32:01 localhost CRON[1807926]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:33:01 localhost CRON[1808174]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:34:01 localhost CRON[1808420]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:34:25 localhost systemd[1]: Starting Message of the Day...
-Mar 13 16:35:01 localhost CRON[1809042]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:35:01 localhost CRON[1809043]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:35:01 localhost CRON[1809053]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:35:09 localhost 50-motd-news[1809341]:  * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
-Mar 13 16:35:09 localhost 50-motd-news[1809341]:    just raised the bar for easy, resilient and secure K8s cluster deployment.
-Mar 13 16:35:09 localhost 50-motd-news[1809341]:    https://ubuntu.com/engage/secure-kubernetes-at-the-edge
-Mar 13 16:35:09 localhost systemd[1]: motd-news.service: Deactivated successfully.
-Mar 13 16:35:09 localhost systemd[1]: Finished Message of the Day.
-Mar 13 16:36:01 localhost CRON[1809551]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:37:01 localhost CRON[1809803]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:38:01 localhost CRON[1810121]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:38:41 localhost systemd[1]: Started Session 35906 of User root.
-Mar 13 16:39:01 localhost CRON[1810540]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:40:01 localhost CRON[1810802]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:40:01 localhost CRON[1810803]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:40:01 localhost CRON[1810804]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:40:01 localhost CRON[1810812]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 16:41:01 localhost CRON[1811332]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:42:01 localhost CRON[1811591]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:42:59 localhost systemd[1]: Started Session 35914 of User root.
-Mar 13 16:43:01 localhost CRON[1811904]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:44:01 localhost CRON[1812150]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:45:01 localhost CRON[1812404]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:45:01 localhost CRON[1812405]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:45:01 localhost CRON[1812406]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:46:01 localhost CRON[1812678]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:47:01 localhost CRON[1812924]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:48:01 localhost CRON[1813169]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:49:01 localhost CRON[1813412]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:50:01 localhost CRON[1813663]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:50:01 localhost CRON[1813664]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:50:01 localhost CRON[1813665]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:50:01 localhost CRON[1813668]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 16:51:01 localhost CRON[1813928]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:52:01 localhost CRON[1814172]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:53:01 localhost CRON[1814417]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:54:01 localhost CRON[1814661]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:55:01 localhost CRON[1814909]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:55:01 localhost CRON[1814908]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 16:55:01 localhost CRON[1814910]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:56:01 localhost CRON[1815166]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:57:01 localhost CRON[1815410]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:58:01 localhost CRON[1815657]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 16:59:01 localhost CRON[1815902]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 17:00:01 localhost CRON[1816150]: (root) CMD (/usr/local/qcloud/YunJing/YDCrontab.sh > /dev/null 2>&1)
-Mar 13 17:00:01 localhost CRON[1816151]: (root) CMD (/usr/local/qcloud/YunJing/clearRules.sh > /dev/null 2>&1)
-Mar 13 17:00:01 localhost CRON[1816152]: (root) CMD (/bin/bash /root/pal-auto-restart.sh)
-Mar 13 17:00:01 localhost CRON[1816154]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 17:00:01 localhost CRON[1816155]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 17:01:01 localhost CRON[1816426]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
-Mar 13 17:02:01 localhost CRON[1816674]: (root) CMD (flock -xn /tmp/stargate.lock -c '/usr/local/qcloud/stargate/admin/start.sh > /dev/null 2>&1 &')
+[GIN] 2024/03/18 - 09:14:45 | 200 | 1.15516ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:46 | 200 | 1.378798ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:50 | 200 | 1.031551ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:51 | 200 | 1.005221ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:52 | 200 | 1.269544ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:53 | 200 | 1.421276ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:54 | 200 | 1.208315ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:55 | 200 | 1.174769ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN-test] 2024/03/18 - 09:14:56 | 200 | 1.311218ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:45 | 200 | 1.15516ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:46 | 200 | 1.378798ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:50 | 200 | 1.031551ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:51 | 200 | 1.005221ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:52 | 200 | 1.269544ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:53 | 200 | 1.421276ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:54 | 200 | 1.208315ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN-test] 2024/03/18 - 09:14:56 | 200 | 1.311218ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:50 | 200 | 1.031551ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:51 | 200 | 1.005221ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:52 | 200 | 1.269544ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:53 | 200 | 1.421276ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/18 - 09:14:54 | 200 | 1.208315ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN-test] 2024/03/18 - 09:14:56 | 200 | 1.311218ms | 127.0.0.1 | POST "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"

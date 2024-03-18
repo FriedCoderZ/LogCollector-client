@@ -9,8 +9,8 @@ import (
 	"github.com/FriedCoderZ/LogCollector-client/internal/database"
 )
 
-// ReadLog 从指定的日志文件中按行读取日志数据，并返回一个字符串列表。
-func ReadLog(path string) ([]string, error) {
+// ReadLogByFile 从指定的日志文件中按行读取日志数据，并返回一个字符串列表。
+func ReadLogByFile(path string) ([]string, error) {
 	//更新为全局变量
 	path, err := filepath.Abs(path)
 	if err != nil {
@@ -38,7 +38,6 @@ func ReadLog(path string) ([]string, error) {
 
 	// 更新LogRecord对象的LastReadLine和LastReadTime
 	record.Update(record.LastReadLine+len(lines), time.Now())
-	record, _ = database.GetRecord(path)
 	return lines, nil
 }
 

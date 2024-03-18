@@ -35,7 +35,7 @@ func replaceByType(template, name, describe string) (string, error) {
 	switch template {
 	case "year":
 		return func(template, name, describe string) (string, error) {
-			return `(?P<year>d{4})`, nil
+			return `(?P<year>\d{4})`, nil
 		}(template, name, describe)
 	case "month":
 		return func(template, name, describe string) (string, error) {
@@ -58,7 +58,7 @@ func replaceByType(template, name, describe string) (string, error) {
 			if describe == "" {
 				return "", fmt.Errorf("please enter a spacer to parse {{date}} e.g. {{date:-}}")
 			}
-			pattern := []string{`(?P<date>(d{4})`, `(0?[1-9]|1[0-2])`, `(0?[1-9]|[1-2][0-9]|3[0-1]))`}
+			pattern := []string{`(?P<year>\d{4})`, `(?P<month>0?[1-9]|1[0-2])`, `(?P<day>0?[1-9]|[1-2][0-9]|3[0-1])`}
 			return strings.Join(pattern, describe), nil
 		}(template, name, describe)
 	case "hour":
@@ -78,7 +78,7 @@ func replaceByType(template, name, describe string) (string, error) {
 			if describe == "" {
 				return "", fmt.Errorf("please enter a spacer to parse {{time}} e.g. {{time:-}}")
 			}
-			pattern := []string{`(?P<time>([01]\d|2[0-3])`, `([0-5]?\d)`, `([0-5]?\d))`}
+			pattern := []string{`(?P<hour>[01]\d|2[0-3])`, `(?P<minute>[0-5]?\d)`, `(?P<second>[0-5]?\d)`}
 			return strings.Join(pattern, describe), nil
 		}(template, name, describe)
 	case "ip", "ipv4":
