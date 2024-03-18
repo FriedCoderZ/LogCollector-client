@@ -1,0 +1,23 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /collector                --> github.com/FriedCoderZ/LogCollector-server/internal/handler.CollectorHandler (3 handlers)
+[GIN-debug] POST   /logs/:uuid               --> github.com/FriedCoderZ/LogCollector-server/internal/handler.InsertLogHandler (3 handlers)
+[GIN-debug] GET    /query/:uuid              --> github.com/FriedCoderZ/LogCollector-server/internal/handler.QueryHandler (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2024/03/17 - 09:14:45 | 200 |     1.15516ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:46 | 200 |    1.378798ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:50 | 200 |    1.031551ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:51 | 200 |    1.005221ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:52 | 200 |    1.269544ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:53 | 200 |    1.421276ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:54 | 200 |    1.208315ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:55 | 200 |    1.174769ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:14:56 | 200 |    1.311218ms |       127.0.0.1 | POST     "/logs/cdfecb8f-d2b4-4452-bdd7-9b3e956fd5cb"
+[GIN] 2024/03/17 - 09:24:43 | 404 |         670ns |    146.19.24.28 | GET      "/"

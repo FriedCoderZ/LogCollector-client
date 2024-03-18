@@ -27,10 +27,14 @@ func ParseString(text string, pattern string) (map[string]string, error) {
 }
 
 func FindAllMatchingFiles(searchPath string, filePathPattern string) ([]string, error) {
+	searchPath, err := filepath.Abs(searchPath)
+	if err != nil {
+		return nil, err
+	}
+	absfilePathPattern := "^" + searchPath + "/" + filePathPattern + "$"
 	var matchingFiles []string
-
 	// 编译正则表达式
-	regExp, err := regexp.Compile(filePathPattern)
+	regExp, err := regexp.Compile(absfilePathPattern)
 	if err != nil {
 		return nil, err
 	}

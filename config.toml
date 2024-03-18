@@ -3,10 +3,10 @@ address = "http://127.0.0.1:8080"
 
 [crypto]
 AESLength = 16
-RSAPublicKeyPath ="/ouryun/LogCollector-client/publicKey.pem"  
+RSAPublicKeyPath ="./publicKey.pem"  
 
 [collector]
-searchPath = "/ouryun/LogCollector-client/log"
-filePathPattern = '^\/ouryun\/LogCollector-client\/log\/(\d{8})\/service.log$'
-parseTemplate = '^\[(?P<app>.+)\] {{date:/}} - {{time::}} \| (?P<status>\d{3}) \| (?P<latency>\d+\.\d+ms) \| {{ip}} \| (?P<request_method>[A-Z]+) +"(?P<request_path>.+)"$'
+searchPath = "./log"
+filePath = '(\d{8})/gin.log'
+parseTemplate = '^\[(?P<app>.+)\] {{date:/}} - {{time::}}\s+\|\s+(?P<status>\d{3})\s+\|\s+(?P<latency>\d+(\.\d+)?[a-zA-Z]+)\s+\|\s+{{ip}}\s+\|\s+(?P<request_method>[A-Z]+)\s+"(?P<request_path>.+)"$'
 reportInterval = 1

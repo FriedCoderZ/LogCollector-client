@@ -11,10 +11,13 @@ import (
 // ParseLogs 函数根据给定的正则表达式模式解析日志文本，并返回解析后的命名子匹配项列表
 func ParseLogs(logTexts []string, pattern string) ([]map[string]string, error) {
 	result := []map[string]string{}
-	for index, text := range logTexts {
+	for _, text := range logTexts {
+		if text == "" {
+			continue
+		}
 		parsedResult, err := util.ParseString(text, pattern)
 		if err != nil {
-			log.Printf("failed to parse log at index %d: %v\n无法解析的行内容:%s", index, err, text)
+			log.Printf("略过无效行:%s", text)
 			continue
 		}
 		result = append(result, parsedResult)

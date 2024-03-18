@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	database.ClearRecords()
+	// database.ClearRecords()
 	flag, err := database.IsCollectorInfoEmpty()
 	if err != nil {
 		log.Fatal(err)
@@ -23,11 +23,12 @@ func main() {
 	}
 	config := config.GetConfig()
 	searchPath := config.Collector.SearchPath
-	filePathPattern := config.Collector.FilePathPattern
+	filePathPattern := config.Collector.FilePath
 	parseTemplate := config.Collector.ParseTemplate
 	reportInterval := config.Collector.ReportInterval
 	serverAddress := config.Server.Address
 	collector := collector.NewCollector(searchPath, filePathPattern, parseTemplate, serverAddress, reportInterval)
+	log.Println("开始监控日志文件")
 	err = collector.Run()
 	if err != nil {
 		log.Fatal(err)

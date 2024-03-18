@@ -10,8 +10,8 @@ type ServerConfig struct {
 }
 
 type CollectorConfig struct {
-	SearchPath      string
-	FilePathPattern string
-	ParseTemplate   string
-	ReportInterval  int
+	SearchPath     string
+	FilePath       string
+	ParseTemplate  string
+	ReportInterval int
 }

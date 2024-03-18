@@ -2,6 +2,7 @@ package collector
 
 import (
 	"log"
+	"path/filepath"
 	"time"
 
 	"github.com/FriedCoderZ/LogCollector-client/internal/collect"
@@ -10,28 +11,32 @@ import (
 )
 
 type Collector struct {
-	SearchPath      string // 待采集文件搜索根目录
-	FilePathPattern string // 待采集文件路径正则表达式(绝对路径)
-	parseTemplate   string // 解析模板
-	ReportInterval  int    // 报告间隔
-	ServerAddress   string // 服务器地址
-	LogPath         string // 日志路径
+	SearchPath     string // 待采集文件搜索根目录
+	FilePath       string // 待采集文件路径正则表达式
+	parseTemplate  string // 解析模板
+	ReportInterval int    // 报告间隔
+	ServerAddress  string // 服务器地址
+	LogPath        string // 日志路径
 }
 
-func NewCollector(searchPath, filePathPattern, parseTemplate, serverAddress string, reportInterval int) *Collector {
+func NewCollector(searchPath, filePath, parseTemplate, serverAddress string, reportInterval int) *Collector {
+	searchAbsPath, err := filepath.Abs(searchPath)
+	if err != nil {
+		log.Fatal(err)
+	}
 	return &Collector{
-		SearchPath:      searchPath,
-		FilePathPattern: filePathPattern,
-		parseTemplate:   parseTemplate,
-		ReportInterval:  reportInterval,
-		ServerAddress:   serverAddress,
+		SearchPath:     searchAbsPath,
+		FilePath:       filePath,
+		parseTemplate:  parseTemplate,
+		ReportInterval: reportInterval,
+		ServerAddress:  serverAddress,
 	}
 }
 
 func (c Collector) Run() error {
 	config := config.GetConfig()
 	for {
-		files, err := util.FindAllMatchingFiles(c.SearchPath, c.FilePathPattern)
+		files, err := util.FindAllMatchingFiles(c.SearchPath, c.FilePath)
 		if err != nil {
 			return err
 		}
@@ -50,7 +55,9 @@ func (c Collector) Run() error {
 				logs = append(logs, fileLogs...)
 			}
 		}
-		log.Printf("新增%d条日志...", len(logs))
+		if len(logs) > 0 {
+			log.Printf("新增%d条日志", len(logs))
+		}
 		if len(logs) > 0 {
 			err = collect.SendLogs(logs)
 		}
